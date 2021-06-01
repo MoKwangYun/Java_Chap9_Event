@@ -1,0 +1,33 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class MouseListenerEx extends JFrame{
+	MouseListenerEx(){
+		setTitle("MouseListener ¿¹Á¦");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		
+		c.setLayout(null);
+		JLabel jl = new JLabel("Hello");
+		jl.setLocation(30,30);
+		jl.setSize(50,20);
+		c.add(jl);
+		
+		jl.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				int x = e.getX();
+				int y = e.getY();
+				
+				jl.setLocation(x,y);
+			}
+		});
+		
+		
+		
+		setVisible(true);
+		setSize(200,200);
+	}
+
+}

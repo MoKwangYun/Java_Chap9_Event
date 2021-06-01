@@ -1,0 +1,41 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class KeyCharEx extends JFrame{
+	KeyCharEx(){
+		setTitle("KeyListener ¿¹Á¦");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c = getContentPane();
+		c.setLayout(new FlowLayout());
+
+		
+		c.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				switch(e.getKeyChar()) {
+					case '\n':
+						c.add(new JLabel("Enter"));
+						break;
+					case 'b':
+						c.setBackground(Color.BLACK);
+						break;
+					case 'r':
+						c.setBackground(Color.RED);
+						break;
+					default:
+						c.add(new JLabel("else"));
+				}
+			}
+		});
+		
+		setVisible(true);
+		setSize(500,500);
+		c.requestFocus();
+
+	}
+	
+	public static void main(String[] args) {
+		new KeyCharEx();
+	}
+}
